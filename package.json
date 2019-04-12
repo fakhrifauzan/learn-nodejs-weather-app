@@ -13,6 +13,7 @@
   "author": "Fakhri Fauzan",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
     "request": "^2.88.0",
     "yargs": "^13.2.2"
   }

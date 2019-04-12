@@ -14,8 +14,9 @@ app.get('/', function(req, res){
 })
 
 app.post('/', function(req, res){
-  let city = req.body.city 
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+  let city = req.body.city
+  let units = req.body.units
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`
   
   request(url, function(error, response, body){
     if (error) {
@@ -25,7 +26,7 @@ app.post('/', function(req, res){
       if (weather.main == undefined){
         res.render('index', {weather: null, error: 'Error, please try again'})
       } else {
-        let message = `It's ${weather.main.temp} degrees Celsius in ${weather.name}!`;
+        let message = `It's ${weather.main.temp} degrees ${check_degree(units)} in ${weather.name}!`;
         res.render('index', {weather: message, error: null});
       }
     }
@@ -35,3 +36,9 @@ app.post('/', function(req, res){
 app.listen(3000, function(){
   console.log('Weather App listening on port 3000!')
 })
+
+function check_degree(unit){
+  if (unit == 'metric') return 'Celcius'
+  if (unit == 'imperial') return 'Fahrenheit'
+  if (unit == 'default') return 'Kelvin'
+}

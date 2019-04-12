@@ -12,6 +12,11 @@
         <h1>Simple Node.js Weather App</h1>
         <form action="/" method="post">
           <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+          <select name="units" class="ghost-input" placeholder="Select a Units" required>
+            <option value="metric">Celcius</option>
+            <option value="imperial">Fahrenheit</option>
+            <option value="default">Kelvin</option>
+          </select>
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
         <% if(weather !== null){ %>

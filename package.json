@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fakhrifauzan/learn-nodejs-weather-app.git"
+  },
   "author": "Fakhri Fauzan",
   "license": "ISC",
   "dependencies": {
